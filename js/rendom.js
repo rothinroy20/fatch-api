@@ -2,6 +2,18 @@ const loadUser = () => {
     fetch('https://randomuser.me/api/?gender=female')
     .then(res => res.json())
     .then(data => displayUser(data))
+    .catch(error => console.log(error))
+}
+
+const loadUser2 = async() => {
+ try{
+    const res = await  fetch('https://randomuser.me/api/?gender=female')
+    const data = await res.json();
+    displayUser(data);
+ }
+ catch(error){
+    console.log(error)
+ }
 }
 
 const displayUser = user => {
